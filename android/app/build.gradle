@@ -82,6 +82,7 @@ project.ext.react = [
 ]
 
 apply from: "../../node_modules/react-native/react.gradle"
+apply from: "../../node_modules/react-native-ultimate-config/android/rnuc.gradle"
 
 /**
  * Set this to true to create two separate APKs instead of one:
@@ -131,7 +132,7 @@ android {
     }
 
     defaultConfig {
-        applicationId "com.react_native_ts_multi_tenant_example"
+        applicationId project.config.get("ANDROID_ID")
         minSdkVersion rootProject.ext.minSdkVersion
         targetSdkVersion rootProject.ext.targetSdkVersion
         versionCode 1
@@ -156,6 +157,7 @@ android {
     buildTypes {
         debug {
             signingConfig signingConfigs.debug
+            resValue "string", "app_name", project.config.get("ANDROID_APP_NAME")
         }
         release {
             // Caution! In production, you need to generate your own keystore file.
@@ -163,6 +165,7 @@ android {
             signingConfig signingConfigs.debug
             minifyEnabled enableProguardInReleaseBuilds
             proguardFiles getDefaultProguardFile("proguard-android.txt"), "proguard-rules.pro"
+            resValue "string", "app_name", project.config.get("ANDROID_APP_NAME")
         }
     }
 

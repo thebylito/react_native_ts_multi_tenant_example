@@ -1,7 +1,7 @@
-const noImage = require('./images/logo.jpeg');
+const logo = require('./images/logo.png');
 
 const appImages = {
-  noImage,
+  logo,
 };
 
 const appColors = {

@@ -1,4 +1,4 @@
-const logo = require('./images/log.jpeg');
+const logo = require('./images/logo.png');
 
 const appImages = {
   logo,
